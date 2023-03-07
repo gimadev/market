@@ -14,7 +14,13 @@ module Types
       "Hello World!"
     end
 
-    
+    field :news, NewsType, "Find a news by slug" do
+      argument :slug, String
+    end
+
+    def news(slug:)
+      News.find_by(slug: slug)
+    end
 
   end
 end
